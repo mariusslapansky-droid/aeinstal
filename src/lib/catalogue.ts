@@ -30,6 +30,6 @@ export const products = [
   { id: "AE-1006", name: "Set fitinguri PPR, diametru 20 mm", brand: "Țevi și fitinguri", image: fittings, price: 15.9, oldPrice: 19.9, category: "Țevi și fitinguri" },
   { id: "AE-1007", name: "Baterie monocomandă pentru lavoar", brand: "Sanitare și baie", image: faucet, price: 249, oldPrice: 299, category: "Sanitare și baie" },
   { id: "AE-1008", name: "Sistem de aer condiționat, 12.000 BTU", brand: "Climatizare", image: climate, price: 2190, oldPrice: 2490, category: "Climatizare și ventilație" },
-];
+] as const;
 export type Product = typeof products[number];
 export const money = (amount: number) => new Intl.NumberFormat("ro-RO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
