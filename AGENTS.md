@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep this project as a TanStack Start homepage design prototype; commerce interactions use in-memory React state so no real checkout or account operation is implied.
+- Define aeinstal presentation tokens and reusable layout styles in src/styles.css; UI actions use the shared Button component.
+- Store the homepage catalogue and category definitions in a browser-safe module, independently of route rendering, for reusable search and quick-order interactions.

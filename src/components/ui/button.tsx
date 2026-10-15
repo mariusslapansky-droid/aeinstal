@@ -9,6 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        brand: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-none",
+        inverse: "bg-card text-foreground hover:bg-card/90 shadow-none",
+        onDark: "border border-inverse/30 text-inverse hover:bg-inverse/10 shadow-none",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
