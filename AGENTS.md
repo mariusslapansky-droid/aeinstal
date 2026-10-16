@@ -9,6 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep this project as a TanStack Start homepage design prototype; commerce interactions use in-memory React state so no real checkout or account operation is implied.
+- Keep this project as a TanStack Start catalogue design prototype; commerce interactions use in-memory React state so no real checkout or account operation is implied.
 - Define aeinstal presentation tokens and reusable layout styles in src/styles.css; UI actions use the shared Button component.
 - Store the homepage catalogue and category definitions in a browser-safe module, independently of route rendering, for reusable search and quick-order interactions.
+- Category pages live at /categorie/$slug; browser-safe category catalogue helpers own filtering, demo technical attributes, and page-size options so route rendering does not define business rules.

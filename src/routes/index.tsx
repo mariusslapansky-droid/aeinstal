@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { categorySlug } from "@/lib/category-catalogue";
 import { useState, useRef, useEffect } from "react";
 import { Search, ArrowRight, ChevronDown, ChevronRight, ChevronLeft, Menu, X, Phone, Mail, MapPin, UserRound, ShoppingCart, Heart, Zap, Building2, Truck, Headset, CreditCard, BadgePercent, PackageCheck, FileText, ListChecks, Upload, Plus, Trash2, Check, BookOpen, Wrench, ShieldCheck, Leaf, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ function Logo() {
 }
 
 function Index() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -73,7 +75,13 @@ function Index() {
   };
   const toggleSaved = (id: string) => setSaved(current => current.includes(id) ? current.filter(item => item !== id) : [...current, id]);
   const showProduct = (product: Product) => { setSelectedProduct(product); setPanel("product"); setSearchOpen(false); };
-  const showCategory = (name: string) => { setSelectedCategory(name); setPanel("category"); setMenuOpen(false); };
+  const showCategory = (name: string) => {
+    if (categories.some(category => category.name === name)) {
+      navigate({ to: "/categorie/$slug", params: { slug: categorySlug(name) } });
+      return;
+    }
+    setSelectedCategory(name); setPanel("category"); setMenuOpen(false);
+  };
   const showResource = (title: string) => { setResourceTitle(title); setPanel("resource"); };
   const quickAdd = (event: React.FormEvent) => {
     event.preventDefault();
