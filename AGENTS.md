@@ -13,3 +13,4 @@
 - Define aeinstal presentation tokens and reusable layout styles in src/styles.css; UI actions use the shared Button component.
 - Store the homepage catalogue and category definitions in a browser-safe module, independently of route rendering, for reusable search and quick-order interactions.
 - Category pages live at /categorie/$slug; browser-safe category catalogue helpers own filtering, demo technical attributes, and page-size options so route rendering does not define business rules.
+- Product pages live at /produs/$productId; browser-safe product catalogue helpers resolve both catalogues, variants and technical attributes so detail pages share the catalogue data.

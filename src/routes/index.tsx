@@ -74,7 +74,7 @@ function Index() {
     setToast(`${safeQuantity} ${safeQuantity === 1 ? "produs adăugat" : "produse adăugate"} în coș`);
   };
   const toggleSaved = (id: string) => setSaved(current => current.includes(id) ? current.filter(item => item !== id) : [...current, id]);
-  const showProduct = (product: Product) => { setSelectedProduct(product); setPanel("product"); setSearchOpen(false); };
+  const showProduct = (product: Product) => { setSearchOpen(false); navigate({ to: "/produs/$productId", params: { productId: product.id } }); };
   const showCategory = (name: string) => {
     if (categories.some(category => category.name === name)) {
       navigate({ to: "/categorie/$slug", params: { slug: categorySlug(name) } });
