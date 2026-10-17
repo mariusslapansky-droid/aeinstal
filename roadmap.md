@@ -6,3 +6,7 @@
 # Category page aeinstal
 - [x] Build category page with technical filters, grid/table views and demo products.
 - [x] Connect homepage category links and verify filtering/cart on desktop and mobile.
+
+# Product page aeinstal
+- [ ] Create product details, technical information and demo purchase interactions.
+- [ ] Connect catalogue product links and verify the product flow.
