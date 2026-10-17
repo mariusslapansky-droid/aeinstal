@@ -4,5 +4,5 @@
 - [x] Check desktop/mobile layout and homepage interactions.
 
 # Category page aeinstal
-- [ ] Build category page with technical filters, grid/table views and demo products.
-- [ ] Connect homepage category links and verify filtering/cart on desktop and mobile.
+- [x] Build category page with technical filters, grid/table views and demo products.
+- [x] Connect homepage category links and verify filtering/cart on desktop and mobile.
