@@ -8,7 +8,7 @@ import { categories, products } from "./catalogue";
 
 export const categorySlug = (name: string) => name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 export type CategoryProduct = {
-  id: string; name: string; image: string; price: number; oldPrice?: number;
+  id: string; name: string; image: string; price: number; oldPrice?: number | undefined;
   material: string; diameter: string; connection: string; brand: string;
   stock: boolean; type: string; unit: string;
 };
@@ -19,7 +19,7 @@ const families = [
   { name: "Niplu alamă, filet exterior", image: brass, material: "Alamă", connection: "Filet", type: "Alamă", price: 8.5 },
   { name: "Țeavă PEX 16 × 2 mm", image: pipe, material: "PEX", connection: "Presare", type: "PEX și multistrat", price: 4.59 },
   { name: "Mufă PPR", image: fittings, material: "PPR", connection: "Sudură", type: "Fitinguri PPR", price: 1.4 },
-];
+] as const;
 export const pipeProducts: CategoryProduct[] = Array.from({ length: 32 }, (_, index) => {
   const family = families[index % families.length] ?? families[0];
   const diameter = ["20 mm", "25 mm", "32 mm", "40 mm"][Math.floor(index / 6) % 4] ?? "20 mm";
