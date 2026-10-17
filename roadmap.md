@@ -8,5 +8,5 @@
 - [x] Connect homepage category links and verify filtering/cart on desktop and mobile.
 
 # Product page aeinstal
-- [ ] Create product details, technical information and demo purchase interactions.
-- [ ] Connect catalogue product links and verify the product flow.
+- [x] Create product details, technical information and demo purchase interactions.
+- [x] Connect catalogue product links and verify the product flow.
