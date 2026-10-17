@@ -47,7 +47,7 @@ function CategoryPage() {
     setCart(current => current.some(line => line.product.id === item.id) ? current.map(line => line.product.id === item.id ? { ...line, quantity: line.quantity + quantity } : line) : [...current,{ product: item, quantity }]);
     setToast(`${quantity} ${quantity === 1 ? "produs adăugat" : "produse adăugate"} în coș`);
   };
-  const openProduct = (item: CategoryProduct) => { setProduct(item); setPanel("product"); };
+  const openProduct = (item: CategoryProduct) => { navigate({ to: "/produs/$productId", params: { productId: item.id } }); };
   const active = (["material", "diameter", "connection", "brand"] as const).flatMap(key => filters[key].map(value => ({ label: value, remove: () => toggleFilter(key,value) })));
   if (filters.inStock) active.push({ label: "Doar în stoc", remove: () => updateFilters({ inStock:false }) });
   if (filters.type) active.push({ label: filters.type, remove: () => updateFilters({ type:"" }) });
