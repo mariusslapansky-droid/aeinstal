@@ -12,7 +12,7 @@
 - [x] Connect catalogue product links and verify the product flow.
 # Parteneri B2B aeinstal
 - [x] Pagina /parteneri-b2b: hero, audiență, avantaje, pași, cifre, FAQ, CTA final.
-- [ ] Formularul de înscriere B2B (punctul 4): CUI cu stări, 3 blocuri, ecran de succes.
+- [ ] Formularul de înscriere B2B (punctul 4): CUI cu toate stările, 3 blocuri, validare, succes și banner de aprobare demonstrativ.
 - [ ] Comanda rapidă după cod — pagina dedicată /comanda-rapida (punctul 6).
 - [ ] Cererea de ofertă (punctul 8).
 - [ ] Panoul de cont B2B (punctul 10).
