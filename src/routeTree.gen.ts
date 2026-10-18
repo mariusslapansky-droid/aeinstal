@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ParteneriB2bRouteImport } from './routes/parteneri-b2b'
 import { Route as CategorieSlugRouteImport } from './routes/categorie.$slug'
 import { Route as ProdusProductIdRouteImport } from './routes/produs.$productId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParteneriB2bRoute = ParteneriB2bRouteImport.update({
+  id: '/parteneri-b2b',
+  path: '/parteneri-b2b',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategorieSlugRoute = CategorieSlugRouteImport.update({
@@ -31,30 +37,39 @@ const ProdusProductIdRoute = ProdusProductIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
   '/produs/$productId': typeof ProdusProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
   '/produs/$productId': typeof ProdusProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
   '/produs/$productId': typeof ProdusProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/categorie/$slug' | '/produs/$productId'
+  fullPaths: '/' | '/parteneri-b2b' | '/categorie/$slug' | '/produs/$productId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/categorie/$slug' | '/produs/$productId'
-  id: '__root__' | '/' | '/categorie/$slug' | '/produs/$productId'
+  to: '/' | '/parteneri-b2b' | '/categorie/$slug' | '/produs/$productId'
+  id:
+    | '__root__'
+    | '/'
+    | '/parteneri-b2b'
+    | '/categorie/$slug'
+    | '/produs/$productId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ParteneriB2bRoute: typeof ParteneriB2bRoute
   CategorieSlugRoute: typeof CategorieSlugRoute
   ProdusProductIdRoute: typeof ProdusProductIdRoute
 }
@@ -66,6 +81,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parteneri-b2b': {
+      id: '/parteneri-b2b'
+      path: '/parteneri-b2b'
+      fullPath: '/parteneri-b2b'
+      preLoaderRoute: typeof ParteneriB2bRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/categorie/$slug': {
@@ -87,6 +109,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ParteneriB2bRoute: ParteneriB2bRoute,
   CategorieSlugRoute: CategorieSlugRoute,
   ProdusProductIdRoute: ProdusProductIdRoute,
 }
