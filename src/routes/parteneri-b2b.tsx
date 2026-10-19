@@ -86,7 +86,7 @@ function PartnersPage() {
               <h1>Prețuri și condiții dedicate <span>firmei tale</span></h1>
               <p>Un cont de partener, toate avantajele: prețuri nete, comenzi rapide și un agent comercial dedicat.</p>
               <div className="b2b-hero-actions">
-                <Button variant="brand" onClick={() => setDialog("apply")}>Solicită cont B2B<ArrowRight /></Button>
+                <Button variant="brand" asChild><Link to="/inscriere-b2b">Solicită cont B2B<ArrowRight /></Link></Button>
                 <Button variant="onDark" onClick={() => setDialog("login")}><UserRound />Autentificare partener</Button>
               </div>
             </div>
@@ -163,7 +163,7 @@ function PartnersPage() {
             <p>Completezi formularul în câteva minute, iar echipa comercială revine cu condițiile în 24 h lucrătoare.</p>
           </div>
           <div className="b2b-final-actions">
-            <Button variant="brand" onClick={() => setDialog("apply")}>Solicită cont B2B<ArrowRight /></Button>
+            <Button variant="brand" asChild><Link to="/inscriere-b2b">Solicită cont B2B<ArrowRight /></Link></Button>
             <Link to="/" hash="contact" className="b2b-agent-link"><Phone />Contactează agentul comercial</Link>
           </div>
         </section>
