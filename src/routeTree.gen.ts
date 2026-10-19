@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InscriereB2bRouteImport } from './routes/inscriere-b2b'
 import { Route as ParteneriB2bRouteImport } from './routes/parteneri-b2b'
 import { Route as CategorieSlugRouteImport } from './routes/categorie.$slug'
 import { Route as ProdusProductIdRouteImport } from './routes/produs.$productId'
@@ -17,6 +18,11 @@ import { Route as ProdusProductIdRouteImport } from './routes/produs.$productId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InscriereB2bRoute = InscriereB2bRouteImport.update({
+  id: '/inscriere-b2b',
+  path: '/inscriere-b2b',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParteneriB2bRoute = ParteneriB2bRouteImport.update({
@@ -37,12 +43,14 @@ const ProdusProductIdRoute = ProdusProductIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/inscriere-b2b': typeof InscriereB2bRoute
   '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
   '/produs/$productId': typeof ProdusProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/inscriere-b2b': typeof InscriereB2bRoute
   '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
   '/produs/$productId': typeof ProdusProductIdRoute
@@ -50,18 +58,30 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/inscriere-b2b': typeof InscriereB2bRoute
   '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
   '/produs/$productId': typeof ProdusProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/parteneri-b2b' | '/categorie/$slug' | '/produs/$productId'
+  fullPaths:
+    | '/'
+    | '/inscriere-b2b'
+    | '/parteneri-b2b'
+    | '/categorie/$slug'
+    | '/produs/$productId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/parteneri-b2b' | '/categorie/$slug' | '/produs/$productId'
+  to:
+    | '/'
+    | '/inscriere-b2b'
+    | '/parteneri-b2b'
+    | '/categorie/$slug'
+    | '/produs/$productId'
   id:
     | '__root__'
     | '/'
+    | '/inscriere-b2b'
     | '/parteneri-b2b'
     | '/categorie/$slug'
     | '/produs/$productId'
@@ -69,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InscriereB2bRoute: typeof InscriereB2bRoute
   ParteneriB2bRoute: typeof ParteneriB2bRoute
   CategorieSlugRoute: typeof CategorieSlugRoute
   ProdusProductIdRoute: typeof ProdusProductIdRoute
@@ -81,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inscriere-b2b': {
+      id: '/inscriere-b2b'
+      path: '/inscriere-b2b'
+      fullPath: '/inscriere-b2b'
+      preLoaderRoute: typeof InscriereB2bRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parteneri-b2b': {
@@ -109,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InscriereB2bRoute: InscriereB2bRoute,
   ParteneriB2bRoute: ParteneriB2bRoute,
   CategorieSlugRoute: CategorieSlugRoute,
   ProdusProductIdRoute: ProdusProductIdRoute,

@@ -4,6 +4,7 @@ import { ArrowRight, Building2, Check, ChevronRight, FileText, Headset, Heart, M
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CategoryHeader } from "@/components/category-header";
+import { PendingApprovalBanner } from "@/components/b2b-registration-context";
 import { money } from "@/lib/catalogue";
 import { detailProducts, getProduct, getProductSpecs, getProductVariants, getRelatedProducts, type DetailProduct } from "@/lib/product-catalogue";
 
@@ -46,6 +47,7 @@ function ProductPage() {
   return <>
     <CategoryHeader count={count} total={total} onCart={() => setPanel("cart")} onSaved={() => setPanel("saved")} onAccount={() => setPanel("account")} onSearch={value => { setQuery(value); setPanel("search"); }} />
     <main className="container-wide product-detail-page">
+      <PendingApprovalBanner />
       <nav className="category-breadcrumb product-breadcrumb" aria-label="Breadcrumb"><Link to="/">Acasă</Link><ChevronRight /><Link to="/categorie/$slug" params={{ slug: p.categorySlug }}>{p.category}</Link><ChevronRight /><span aria-current="page">{p.name}</span></nav>
       <div className="detail-overview">
         <div className="detail-gallery"><div className="detail-image-stage"><span className="detail-image-label">SELECȚIA AEINSTAL</span><Button variant="ghost" className="detail-main-image" aria-label="Mărește fotografia produsului" onClick={() => setPanel("image")}><img src={p.image} alt={p.name} width="512" height="512" fetchPriority="high" /></Button><Button variant="outline" size="icon" className="detail-zoom" title="Mărește fotografia" aria-label="Mărește fotografia" onClick={() => setPanel("image")}><ZoomIn /></Button></div><div className="detail-gallery-caption"><PackageCheck /><span>Imagine ilustrativă</span><span>Cod: {p.id}</span></div><div className="detail-gallery-bottom"><span className="detail-thumbnail"><img src={p.image} alt="" width="64" height="64" /></span><p>Parte din gama<br /><Link to="/categorie/$slug" params={{ slug: p.categorySlug }}>{p.category}<ArrowRight size={13} /></Link></p></div></div>
