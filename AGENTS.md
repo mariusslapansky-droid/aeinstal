@@ -15,3 +15,5 @@
 - Category pages live at /categorie/$slug; browser-safe category catalogue helpers own filtering, demo technical attributes, and page-size options so route rendering does not define business rules.
 - Product pages live at /produs/$productId; browser-safe product catalogue helpers resolve both catalogues, variants and technical attributes so detail pages share the catalogue data.
 - B2B registration validation and simulated lookup live in a browser-safe helper; pending approval uses a root React context shared with product views so prototype navigation preserves the state without saving personal data.
+
+- Quick-order catalogue lookup, illustrative stock/pack rules and import validation live in a browser-safe helper; row and import controls are separate components so paste, CSV and XLSX share the same checks.
