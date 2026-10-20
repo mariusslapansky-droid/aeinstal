@@ -13,6 +13,6 @@
 # Parteneri B2B aeinstal
 - [x] Pagina /parteneri-b2b: hero, audiență, avantaje, pași, cifre, FAQ, CTA final.
 - [x] Formularul de înscriere B2B (punctul 4): CUI cu toate stările, 3 blocuri, validare, succes și banner de aprobare demonstrativ; verificat desktop/mobil.
-- [ ] Comanda rapidă după cod — pagina dedicată /comanda-rapida (punctul 6).
+- [ ] Comanda rapidă după cod — pagina dedicată /comanda-rapida (punctul 6): tabel, autocomplete, lipire, import cu previzualizare și verificare desktop/mobil.
 - [ ] Cererea de ofertă (punctul 8).
 - [ ] Panoul de cont B2B (punctul 10).
