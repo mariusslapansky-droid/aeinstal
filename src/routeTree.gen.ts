@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComandaRapidaRouteImport } from './routes/comanda-rapida'
 import { Route as InscriereB2bRouteImport } from './routes/inscriere-b2b'
 import { Route as ParteneriB2bRouteImport } from './routes/parteneri-b2b'
 import { Route as CategorieSlugRouteImport } from './routes/categorie.$slug'
@@ -18,6 +19,11 @@ import { Route as ProdusProductIdRouteImport } from './routes/produs.$productId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComandaRapidaRoute = ComandaRapidaRouteImport.update({
+  id: '/comanda-rapida',
+  path: '/comanda-rapida',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InscriereB2bRoute = InscriereB2bRouteImport.update({
@@ -43,6 +49,7 @@ const ProdusProductIdRoute = ProdusProductIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/comanda-rapida': typeof ComandaRapidaRoute
   '/inscriere-b2b': typeof InscriereB2bRoute
   '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/comanda-rapida': typeof ComandaRapidaRoute
   '/inscriere-b2b': typeof InscriereB2bRoute
   '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/comanda-rapida': typeof ComandaRapidaRoute
   '/inscriere-b2b': typeof InscriereB2bRoute
   '/parteneri-b2b': typeof ParteneriB2bRoute
   '/categorie/$slug': typeof CategorieSlugRoute
@@ -67,6 +76,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/comanda-rapida'
     | '/inscriere-b2b'
     | '/parteneri-b2b'
     | '/categorie/$slug'
@@ -74,6 +84,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/comanda-rapida'
     | '/inscriere-b2b'
     | '/parteneri-b2b'
     | '/categorie/$slug'
@@ -81,6 +92,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/comanda-rapida'
     | '/inscriere-b2b'
     | '/parteneri-b2b'
     | '/categorie/$slug'
@@ -89,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComandaRapidaRoute: typeof ComandaRapidaRoute
   InscriereB2bRoute: typeof InscriereB2bRoute
   ParteneriB2bRoute: typeof ParteneriB2bRoute
   CategorieSlugRoute: typeof CategorieSlugRoute
@@ -102,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/comanda-rapida': {
+      id: '/comanda-rapida'
+      path: '/comanda-rapida'
+      fullPath: '/comanda-rapida'
+      preLoaderRoute: typeof ComandaRapidaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inscriere-b2b': {
@@ -137,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComandaRapidaRoute: ComandaRapidaRoute,
   InscriereB2bRoute: InscriereB2bRoute,
   ParteneriB2bRoute: ParteneriB2bRoute,
   CategorieSlugRoute: CategorieSlugRoute,
